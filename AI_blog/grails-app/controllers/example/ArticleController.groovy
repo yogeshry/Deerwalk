@@ -18,6 +18,7 @@ class ArticleController {
         respond articleService.get(id)
     }
 
+
     def create() {
         respond new Article(params)
     }
