@@ -3,8 +3,9 @@ package example
 class BootStrap {
 
     def init = { servletContext ->
-        def user1 = new User(name:'Suman Sapkota', email: 'suman@gmail.com')
-        def user2 = new User(name:'Rupesh Tamang', email: 'rupesh@gmail.com')
+        def adminRole = Role.findOrSaveWhere(authority: 'ROLE_ADMIN')
+        def user1 = User.findOrSaveWhere(name:'Suman Sapkota', email: 'suman@gmail.com',password: '12345')
+        def user2 = User.findOrSaveWhere(name:'Rupesh Tamang', email: 'rupesh@gmail.com',password: '12345')
         def article1 = new Article(imageCaption:'Exploring the Qualcomm 5G booth.', title: "CES 2019: It’s the Year of Virtual Assistants and 5G", sku:'yyhh', textBody: 'The most surprising news came when a host of tech companies announced they were working with Apple to bring some of the company’s content and virtual assistant capabilities to their devices.\n' +
                 '\n' +
                 'Vizio, the TV maker, said its newer TVs would work with AirPlay, an Apple software feature for streaming video and audio content from an iPhone or Mac to a television screen. People will be able to speak to Siri on their iPhones to play content they had purchased from iTunes on the Vizio TVs. Samsung, Sony and LG announced similar partnerships with Apple.\n' +
@@ -75,31 +76,21 @@ class BootStrap {
                 'Now 80, Dr. Knuth usually dresses like the youthful geek he was when he embarked on this odyssey: long-sleeved T-shirt under a short-sleeved T-shirt, with jeans, at least at this time of year. In those early days, he worked close to the machine, writing “in the raw,” tinkering with the zeros and ones.\n' +
                 '\n' +
                 '“Knuth made it clear that the system could actually be understood all the way down to the machine code level,” said Dr. Norvig. Nowadays, of course, with algorithms masterminding (and undermining) our very existence, the average programmer no longer has time to manipulate the binary muck, and works instead with hierarchies of abstraction, layers upon layers of code — and often with chains of code borrowed from code libraries. But an elite class of engineers occasionally still does the deep dive. ' , imagePath: "articleImages/merlin_148126767_cd44bb13-bc4d-4eeb-b1b7-73cc4dc174e7-superJumbo.jpg",timestamp: new Date(), user: user1)
-        def article6 = new Article(imageCaption: 'Facebook called Courtney Davis, left, a telecommunications operator at the Police Department in Rock Hill, S.C., about a man who was live-streaming a suicide attempt, helping Sgt. Bruce Haire find him.',title: 'In Screening for Suicide Risk, Facebook Takes On Tricky Public Health Role', textBody: 'A police officer on the late shift in an Ohio town recently received an unusual call from Facebook.\n' +
-                '\n' +
-                'Earlier that day, a local woman wrote a Facebook post saying she was walking home and intended to kill herself when she got there, according to a police report on the case. Facebook called to warn the Police Department about the suicide threat.\n' +
-                '\n' +
-                'The officer who took the call quickly located the woman, but she denied having suicidal thoughts, the police report said. Even so, the officer believed she might harm herself and told the woman that she must go to a hospital — either voluntarily or in police custody. He ultimately drove her to a hospital for a mental health work-up, an evaluation prompted by Facebook’s intervention. (The New York Times withheld some details of the case for privacy reasons.)\n' +
-                '\n' +
-                'Police stations from Massachusetts to Mumbai have received similar alerts from Facebook over the last 18 months as part of what is most likely the world’s largest suicide threat screening and alert program. The social network ramped up the effort after several people live-streamed their suicides on Facebook Live in early 2017. It now utilizes both algorithms and user reports to flag possible suicide threats.\n' +
-                '\n' +
-                'Facebook’s rise as a global arbiter of mental distress puts the social network in a tricky position at a time when it is under investigation for privacy lapses by regulators in the United States, Canada and the European Union — as well as facing heightened scrutiny for failing to respond quickly to election interference and ethnic hatred campaigns on its site. Even as Facebook’s chief executive, Mark Zuckerberg, has apologized for improper harvesting of user data, the company grappled last month with fresh revelations about special data-sharing deals with tech companies.\n' +
-                '\n' +
-                'The anti-suicide campaign gives Facebook an opportunity to frame its work as a good news story. Suicide is the second-leading cause of death among people ages 15 to 29 worldwide, according to the World Health Organization. Some mental health experts and police officials said Facebook had aided officers in locating and stopping people who were clearly about to harm themselves.\n' +
-                '\n' +
-                'Facebook has computer algorithms that scan the posts, comments and videos of users in the United States and other countries for indications of immediate suicide risk. When a post is flagged, by the technology or a concerned user, it moves to human reviewers at the company, who are empowered to call local law enforcement.\n' +
-                '', imagePath: "articleImages/merlin_148269525_018dd0d0-1c4d-4872-a46b-0ef5ff884552-superJumbo.jpg",timestamp: new Date(), user: user1)
 
         def comment1 = new Comment(text: "yydsfkjdsljjjjjjjjjjjjjj", timestamp: new Date(), articles: article1, user: user2)
-        user1.save()
-        user2.save()
+        if(!user2.authorities.contains(adminRole)){
+            UserRole.create(user2,adminRole,true)
+        }
+        if(!user1.authorities.contains(adminRole)){
+            UserRole.create(user1,adminRole,true)
+        }
         article1.save()
         comment1.save()
         article2.save()
         article3.save()
         article4.save()
         article5.save()
-        article6.save()
+
     }
     def destroy = {
     }

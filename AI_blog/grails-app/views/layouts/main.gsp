@@ -29,7 +29,7 @@
                 <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Post</a>
+                <a class="nav-link" href="/article/create">Post</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#">Contact</a>

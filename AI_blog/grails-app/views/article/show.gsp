@@ -17,8 +17,7 @@
                 <asset:image src="${this.article.imagePath}" style="max-height:100%; max-width:100%" />
                 <p><i>${this.article.imageCaption}</i></p>
                 <hr class="my-4">
-                <p class="lead">${this.article.textBody}</p></div>
-            
+                <p  style="line-height:1.8;font-size:16px">${this.article.textBody}</p></div>
         </div>
         <br/>
 

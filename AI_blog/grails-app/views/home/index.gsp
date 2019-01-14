@@ -27,7 +27,7 @@
             <div class="carousel-item active" style="height: 50vw">
                 <asset:image src= "${mainArticle.imagePath[0]}" alt="Los Angeles" width="100%"/>
                 <div class="carousel-caption" style="bottom: 20%">
-                    <h3 style="font-size:2vw">${mainArticle.user[0].name}</h3>
+                <h3 style="font-size:1.5vw"><i>${mainArticle.user[0].name}</i></h3>
                     <h2 style="font-size:3vw">${mainArticle.title[0]}</h2>
                     <a href="/article/show/${mainArticle.id[0]}" class="btn btn-outline-primary">Read more</a>
                 </div>
@@ -36,7 +36,7 @@
             <div class="carousel-item" style="height: 50vw">
                 <asset:image src="${mainArticle.imagePath[1]}"  alt="Chicago"  width="100%"/>
                 <div class="carousel-caption" style="bottom: 20%">
-                    <h3 style="font-size:2vw">${mainArticle.user[1].name}</h3>
+                <h3 style="font-size:1.5vw"><i>${mainArticle.user[1].name}</i></h3>
                     <h2 style="font-size:3vw">${mainArticle.title[1]}</h2>
                     <a href="/article/show/${mainArticle.id[1]}" class="btn btn-outline-primary">Read more</a>
                 </div>
@@ -45,7 +45,7 @@
             <div class="carousel-item" style="height: 50vw">
                 <asset:image src="${mainArticle.imagePath[2]}" alt="New York" width="100%"/>
                 <div class="carousel-caption" style="bottom: 20%">
-                    <h3 style="font-size:2vw">${mainArticle.user[2].name}</h3>
+                <h3 style="font-size:1.5vw"><i>${mainArticle.user[2].name}</i></h3>
                     <h2 style="font-size:3vw">${mainArticle.title[2]}</h2>
                 <a href="/article/show/${mainArticle.id[2]}" class="btn btn-outline-primary">Read more</a>
                 </div>
