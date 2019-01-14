@@ -1,7 +1,6 @@
 package example
 
 class Comment {
-    Long commentID
     Date timestamp
     String text
     static mapping = {

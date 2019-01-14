@@ -1,7 +1,6 @@
 package example
 
 class Article {
-    Long articleID
     String title
     Date timestamp
     String textBody
