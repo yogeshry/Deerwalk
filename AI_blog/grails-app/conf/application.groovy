@@ -4,6 +4,7 @@
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'example.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'example.UserRole'
 grails.plugin.springsecurity.authority.className = 'example.Role'
+grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
@@ -20,6 +21,10 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     [pattern: '/home/index.gsp', access: ['permitAll']],
     [pattern: '/article/show',     access: ['permitAll']],
     [pattern: '/article/show.gsp', access: ['permitAll']],
+    [pattern: '/misc/about',   access: ['permitAll']],
+    [pattern: '/misc/about.gsp', access: ['permitAll']],
+    [pattern: '/misc/contact',   access: ['permitAll']],
+    [pattern: '/misc/contact.gsp', access: ['permitAll']],
     [pattern: '/dbconsole/**', access: ['permitAll']]
 
 ]
@@ -55,6 +60,10 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     [pattern: '/home/index.gsp', access: ['permitAll']],
     [pattern: '/article/show',   access: ['permitAll']],
     [pattern: '/article/show.gsp', access: ['permitAll']],
+    [pattern: '/misc/about',   access: ['permitAll']],
+    [pattern: '/misc/about.gsp', access: ['permitAll']],
+    [pattern: '/misc/contact',   access: ['permitAll']],
+    [pattern: '/misc/contact.gsp', access: ['permitAll']],
     [pattern: '/dbconsole/**', access: ['permitAll']]
 ]
 

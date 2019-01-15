@@ -1,8 +1,8 @@
 package example
 
+import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
-
 class ArticleController {
 
     ArticleService articleService
@@ -17,7 +17,7 @@ class ArticleController {
     def show(Long id) {
         respond articleService.get(id)
     }
-
+    @Secured(['ROLE_ADMIN'])
     def create() {
         respond new Article(params)
     }

@@ -4,8 +4,8 @@ class BootStrap {
 
     def init = { servletContext ->
         def adminRole = Role.findOrSaveWhere(authority: 'ROLE_ADMIN')
-        def user1 = User.findOrSaveWhere(name:'Suman Sapkota', email: 'suman@gmail.com',password: '12345')
-        def user2 = User.findOrSaveWhere(name:'Rupesh Tamang', email: 'rupesh@gmail.com',password: '12345')
+        def user1 = User.findOrSaveWhere(username:'suman', name:'Suman Sapkota', email: 'suman@gmail.com',password: '12345')
+        def user2 = User.findOrSaveWhere(username:'rupesh', name:'Rupesh Tamang', email: 'rupesh@gmail.com',password: '12345')
         def article1 = new Article(imageCaption:'Exploring the Qualcomm 5G booth.', title: "CES 2019: It’s the Year of Virtual Assistants and 5G", sku:'yyhh', textBody: 'The most surprising news came when a host of tech companies announced they were working with Apple to bring some of the company’s content and virtual assistant capabilities to their devices.\n' +
                 '\n' +
                 'Vizio, the TV maker, said its newer TVs would work with AirPlay, an Apple software feature for streaming video and audio content from an iPhone or Mac to a television screen. People will be able to speak to Siri on their iPhones to play content they had purchased from iTunes on the Vizio TVs. Samsung, Sony and LG announced similar partnerships with Apple.\n' +

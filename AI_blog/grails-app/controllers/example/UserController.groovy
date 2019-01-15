@@ -1,5 +1,6 @@
 package example
 
+import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
@@ -96,4 +97,15 @@ class UserController {
             '*'{ render status: NOT_FOUND }
         }
     }
+    @Secured(['permitAll'])
+    def signup() {
+
+
+    }
+    def login() {
+
+
+    }
 }
+
+

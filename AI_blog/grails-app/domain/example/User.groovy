@@ -10,7 +10,7 @@ import grails.compiler.GrailsCompileStatic
 class User implements Serializable {
 
     private static final long serialVersionUID = 1
-
+    String username
     String name
     String password
     boolean enabled = true
@@ -27,7 +27,7 @@ class User implements Serializable {
     static hasMany = [comments:Comment,articles:Article]
     static constraints = {
         password nullable: false, blank: false, password: true
-        name nullable: false, blank: false, unique: true
+        username nullable: false, blank: false, unique: true
     }
 
     static mapping = {
