@@ -43,19 +43,19 @@
 
     <sec:ifNotLoggedIn>
         <li class="dropdown dropleft" style="list-style-type: none; padding-left: 25px; padding-right: 5px">
-            <asset:image height="25px"src="user.svg" class="dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+            <asset:image height="25px" src="user.svg" class="dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
             <ul class="dropdown-menu" style="background-color: #0c5460" >
                 <li style="text-align: center"><a href="/user/login" style="color: #f3efe0">Log In</a></li>
                 <hr style="background-color: #138496"/>
 
-                <li style="text-align: center"><a href="/user/signup" style="color: #f3efe0">Sign Up</a></li>
+                <li style="text-align: center"><a href="/user/create" style="color: #f3efe0">Sign Up</a></li>
             </ul>
         </li>
     </sec:ifNotLoggedIn>
 
     <sec:ifLoggedIn>
         <li class="dropdown dropleft" style="list-style-type: none; padding-left: 25px; padding-right: 5px">
-            <asset:image height="25px"src="user.svg" class="dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+            <asset:image height="25px" src="user.svg" class="dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
             <ul class="dropdown-menu" style="background-color: #0c5460" >
                 <li style="text-align: center" ><p style="color: #ffe8a1">Hello <sec:username/></p></li>
                 <hr style="background-color: #138496"/>

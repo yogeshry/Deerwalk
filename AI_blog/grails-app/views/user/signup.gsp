@@ -2,39 +2,67 @@
 <html>
 <head>
     <meta name="layout" content="main" />
-    <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
-    <title><g:message code="default.edit.label" args="[entityName]" /></title>
+    <title><g:message code="default.create.label" args="[entityName]" /></title>
+    <asset:stylesheet src="own.css"/>
 </head>
 <body>
-<a href="#edit-user" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-<div class="nav" role="navigation">
-    <ul>
-        <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-        <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-        <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-    </ul>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signup my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Sign Up</h5>
+                    <g:form  controller="user" action="save">
+                        <div class="form-label-group">
+                            <input type="text" id="inputusername" class="form-control" placeholder="username" required autofocus>
+                            <label for="inputusername">Username</label>
+                        </div>
+                        <div class="form-label-group">
+                            <input type="text" id="inputname" class="form-control" placeholder="name" required autofocus>
+                            <label for="inputname">Full Name</label>
+                        </div>
+                        <div class="form-label-group">
+                            <input type="email" id="inputEmail" class="form-control" placeholder="email" required autofocus>
+                            <label for="inputEmail">Email address</label>
+                        </div>
+                        <div class="form-label-group">
+                            <input type="password" id="inputPassword" class="form-control" placeholder="password" required>
+                            <label for="inputPassword">Password</label>
+                        </div>
+
+
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" value="save">Sign Up</button>
+                        <hr class="my-4">
+                        <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign up with Google</button>
+                        <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>
+                    </g:form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div id="edit-user" class="content scaffold-edit" role="main">
-    <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
-    <g:if test="${flash.message}">
-        <div class="message" role="status">${flash.message}</div>
-    </g:if>
-    <g:hasErrors bean="${this.user}">
-        <ul class="errors" role="alert">
-            <g:eachError bean="${this.user}" var="error">
-                <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
-            </g:eachError>
-        </ul>
-    </g:hasErrors>
-    <g:form resource="${this.user}" method="PUT">
-        <g:hiddenField name="version" value="${this.user?.version}" />
-        <fieldset class="form">
-            <f:all bean="user"/>
-        </fieldset>
-        <fieldset class="buttons">
-            <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
-        </fieldset>
-    </g:form>
-</div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<g:form  controller="user" action="save">
+    <label>Name: </label>
+    <g:textField name="name"/><br/>
+
+    <label>Email: </label>
+    <g:textField name="email"/><br/>
+    <g:actionSubmit value="save"/>
+</g:form>
+
 </body>
 </html>
+

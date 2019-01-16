@@ -4,6 +4,7 @@ import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
+
 class UserController {
 
     UserService userService
@@ -18,11 +19,11 @@ class UserController {
     def show(Long id) {
         respond userService.get(id)
     }
-
+    @Secured(['permitAll'])
     def create() {
         respond new User(params)
     }
-
+    @Secured(['permitAll'])
     def save(User user) {
         if (user == null) {
             notFound()
@@ -30,7 +31,12 @@ class UserController {
         }
 
         try {
+            def adminRole = Role.findOrSaveWhere(authority: 'ROLE_ADMIN')
             userService.save(user)
+            if(!user.authorities.contains(adminRole)){
+                UserRole.create(user,adminRole,true)
+            }
+
         } catch (ValidationException e) {
             respond user.errors, view:'create'
             return

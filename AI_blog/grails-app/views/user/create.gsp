@@ -25,6 +25,12 @@
                 </g:eachError>
             </ul>
             </g:hasErrors>
+            <div class="container">
+            <div class="row">
+                <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                    <div class="card card-signup my-5">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sign Up</h5>
             <g:form resource="${this.user}" method="POST">
                 <fieldset class="form">
                     <f:all bean="user"/>
@@ -33,6 +39,11 @@
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
                 </fieldset>
             </g:form>
+                            <div/>
+                            <div/>
+                            <div/>
+                            <div/>
+                            <div/>
         </div>
     </body>
 </html>
