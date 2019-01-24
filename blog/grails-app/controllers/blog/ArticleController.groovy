@@ -3,11 +3,13 @@ package blog
 import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
+import grails.plugin.springsecurity.SpringSecurityService
 
 @Secured(['ROLE_ADMIN'])
 class ArticleController {
 
     ArticleService articleService
+    FileUploadService fileUploadService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -22,31 +24,37 @@ class ArticleController {
 
     def create() {
     }
-
     def save() {
-        def article = new Article(title:  params.title, textBody: params.textBody,
-                imagePath: params.imagePath, imageCaption: params.imageCaption,
-                user: User.get(1),updatedAt: new Date(),createdAt: new Date(),
-                deletedAt: new Date(),deleted: false)
-        if (article == null) {
-            notFound()
-            return
-        }
-
-        try {
-            articleService.save(article)
-        } catch (ValidationException e) {
-            respond article.errors, view:'create'
-            return
-        }
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'article.label', default: 'Article'), article.id])
-                redirect article
+        String baseImageName = UUID.randomUUID().toString();
+        // Saving image in a folder assets/channelImage/, in the web-app, with the name: baseImageName
+        def downloadedFile = request.getFile('image')
+        String fileUploaded = fileUploadService.uploadFile(downloadedFile, "${baseImageName}.jpg", "/assets/articleImages/" )
+        if( fileUploaded ){
+            def user = getAuthenticatedUser()
+            def article = new Article(title:  params.title, textBody: params.textBody,
+                    imagePath: 'articleImages/'+ baseImageName+'.jpg', imageCaption: params.imageCaption,
+                    user: user,updatedAt: new Date(),createdAt: new Date(),
+                    deletedAt: new Date(),deleted: false)
+            if (article == null) {
+                notFound()
+                return
             }
-            '*' { respond article, [status: CREATED] }
+
+            try {
+                articleService.save(article)
+            } catch (ValidationException e) {
+                respond article.errors, view:'create'
+                return
+            }
+            request.withFormat {
+                form multipartForm {
+                    flash.message = message(code: 'default.created.message', args: [message(code: 'article.label', default: 'Article'), article.id])
+                    redirect article
+                }
+                '*' { respond article, [status: CREATED] }
+            }
         }
+
     }
 
     def edit(Long id) {

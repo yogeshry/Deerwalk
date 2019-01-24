@@ -73,7 +73,7 @@
             <g:each var="article" in="${articles1}">
 
             <div class="card" style="width: 30rem;">
-                <asset:image class="card-img-top" src="${article.imagePath}" alt="Card image cap"/>
+                <g:img class="card-img-top" src="/main/webapp/assets/${article.imagePath}" alt="Card image cap"/>
                 <div class="card-body">
                     <h5 class="card-title">${article.title}</h5>
                     <p class="card-text" style=" overflow: hidden; text-overflow: ellipsis; max-height: 200px">${article.textBody}</p>

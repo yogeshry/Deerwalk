@@ -23,14 +23,14 @@
 <br/>
 <br/>
 <br/>
-<form action="/article/save" method="POST">
+<form action="/article/save" method="POST" enctype="multipart/form-data">
     <div class="container">
         <div class="d-flex justify-content-center h-100">
 
             <div class="card">
 
                 <div class="card-header">
-                    <h3>Register</h3>
+                    <h3>Create Post</h3>
                     <div class="d-flex justify-content-end social_icon">
                         <span><i class="fab fa-facebook-square"></i></span>
                         <span><i class="fab fa-google-plus-square"></i></span>
@@ -55,12 +55,7 @@
                             <input type="text" placeholder="${errortextBody}" class='formLogin form-control' name="textBody" id="textBody">
                         </div>
 
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="text" placeholder="${errorImage}" class='formLogin form-control' name="imagePath" id="imagePath">
-                        </div>
+
 
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
@@ -69,6 +64,10 @@
                             <input type="imageCaption"  placeholder="${errorimageCaption}" class="formLogin form-control" name="imageCaption" id="imageCaption">
                         </div>
                         %{--<g:hiddenField name="user" value="User(username:" />--}%
+
+                            Select Picture: <input type="file" name="image"/>
+
+
 
 
                         <div class="form-group">
@@ -81,6 +80,7 @@
         </div>
     </div>
 </form>
+
 
 </body>
 
