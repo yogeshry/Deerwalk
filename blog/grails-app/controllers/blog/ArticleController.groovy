@@ -153,7 +153,6 @@ class ArticleController implements GrailsConfigurationAware{
         lines = ["title,textBody,imageCaption,imagePath,createdAt,deletedAt,updatedAt,Author"]+
                 Article.findAll().collect { ['"'+it.title+'"', '"'+it.textBody+'"','"'+it.imageCaption+'"','"'+it.imagePath+'"',it.createdAt,it.deletedAt,it.updatedAt,it.user.firstname].join(',')} as List<String>
         for (int a = 0; a < 30000; a++) {
-
             for (int b = 0; b < 1000000; b++) {
                 //delay
             }

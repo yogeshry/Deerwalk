@@ -3,8 +3,7 @@ package blog
 import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
-
-@Secured(['ROLE_ADMIN'])
+@Secured(['permitAll'])
 class CommentController {
 
     CommentService commentService
@@ -19,9 +18,11 @@ class CommentController {
     def show(Long id) {
         respond commentService.get(id)
     }
+
     def create() {
         respond new Comment(params)
     }
+
     def save(Comment comment) {
         if (comment == null) {
             notFound()

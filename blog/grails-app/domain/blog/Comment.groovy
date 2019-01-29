@@ -12,7 +12,7 @@ class Comment implements LogicalDelete<Comment> {
         text type: "text"
         deleted column: "delFlag"
     }
-    static belongsTo = [user:User,articles:Article]
+    static belongsTo = [user:User,article:Article]
 
     static constraints = {
     }
