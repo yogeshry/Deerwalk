@@ -11,8 +11,6 @@ class Article implements LogicalDelete{
     Date deletedAt
     Date updatedAt
 
-
-
     static mapping = {
         textBody type: "text"
         deleted column: "delFlag"

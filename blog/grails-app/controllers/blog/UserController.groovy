@@ -18,10 +18,12 @@ class UserController {
     def show(Long id) {
         respond userService.get(id)
     }
+
     @Secured(['permitAll'])
     def create() {
         respond new User(params)
     }
+
     @Secured(['permitAll'])
     def save(User user) {
         if (user == null) {

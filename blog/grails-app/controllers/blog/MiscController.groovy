@@ -5,9 +5,7 @@ import grails.plugin.springsecurity.annotation.Secured
 @Secured(['permitAll'])
 class MiscController {
 
-    def index() {
-        render 'sdfdsf'
-    }
+    def index() { }
     def about() { }
     def contact() { }
 

@@ -73,7 +73,8 @@
             <g:each var="article" in="${articles1}">
 
             <div class="card" style="width: 30rem;">
-                <g:img class="card-img-top" src="/main/webapp/assets/${article.imagePath}" alt="Card image cap"/>
+
+                <img src="${createLink(controller: 'home', action: 'displayGraph')}"/>
                 <div class="card-body">
                     <h5 class="card-title">${article.title}</h5>
                     <p class="card-text" style=" overflow: hidden; text-overflow: ellipsis; max-height: 200px">${article.textBody}</p>
@@ -86,10 +87,6 @@
     </div>
 
 </div>
-<g:uploadForm action="upload">
-    <input type="file" name="filecsv" />
-    <input type="submit" />
-</g:uploadForm>
 
 </body>
 </html>

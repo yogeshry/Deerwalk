@@ -23,7 +23,7 @@
 <br/>
 <br/>
 <br/>
-<form action="/article/save" method="POST" enctype="multipart/form-data">
+<form action="save" method="POST" enctype="multipart/form-data">
     <div class="container">
         <div class="d-flex justify-content-center h-100">
 
@@ -80,6 +80,12 @@
         </div>
     </div>
 </form>
+
+<g:uploadForm action="bulkSave">
+    <input type="file" name="filecsv" />
+    <input type="submit"/>
+</g:uploadForm>
+
 
 
 </body>

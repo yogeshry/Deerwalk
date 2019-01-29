@@ -2,29 +2,25 @@ package blog
 
 import grails.gorm.transactions.Transactional
 import org.springframework.web.multipart.MultipartFile
-import grails.web.context.ServletContextHolder
 
 @Transactional
 class FileUploadService {
 
-    def String uploadFile(MultipartFile file, String name, String destinationDirectory ) {
+     String uploadFile(MultipartFile file, String name, String destinationDirectory ) {
 
-        def serveletContext = ServletContextHolder.servletContext
-        def storagePath = serveletContext.getRealPath( destinationDirectory )
-
+        def storagePath = destinationDirectory
         def storagePathDirectory = new File( storagePath )
 
-        if( !storagePathDirectory.exists() ){
+         if( !storagePathDirectory.exists() ){
             println("creating directory ${storagePath}")
             if(storagePathDirectory.mkdirs()){
                 println "SUCCESS"
             }else{
                 println "FAILED"
             }
-        }
+         }
 
         // Store file
-
         if(!file.isEmpty()){
             file.transferTo( new File("${storagePath}/${name}") )
             println("Saved File: ${storagePath}/${name}")

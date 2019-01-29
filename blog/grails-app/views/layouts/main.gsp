@@ -20,6 +20,7 @@
 
 <body>
 
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" role="navigation">
     <a class="navbar-brand" href="/#"><asset:image src="brain.svg" alt="AI Logo"/></a>
     <a class="navbar-brand" href="/home">Home</a>
@@ -66,13 +67,12 @@
             </ul>
         </li>
     </sec:ifLoggedIn>
-
+    <g:remoteLink action="downloadCSV" />
 
 </nav>
 
 <g:layoutBody/>
 
 <asset:javascript src="application.js"/>
-
 </body>
 </html>

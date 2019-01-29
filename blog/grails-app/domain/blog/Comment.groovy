@@ -7,10 +7,6 @@ class Comment implements LogicalDelete<Comment> {
     Date createdAt
     Date deletedAt
     Date updatedAt
-    String createdBy
-    String deletedBy
-    String updatedBy
-
 
     static mapping = {
         text type: "text"
