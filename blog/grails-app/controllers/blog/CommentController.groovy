@@ -1,14 +1,19 @@
 package blog
 
 import grails.plugin.springsecurity.annotation.Secured
+import grails.rest.RestfulController
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 @Secured(['permitAll'])
-class CommentController {
+class CommentController extends RestfulController<Comment> {
+    static responseFormats = ['json', 'xml']
+    CommentController() {
+        super(Comment)
+    }
 
     CommentService commentService
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)

@@ -14,5 +14,8 @@ class UrlMappings {
         "500"(view:'/error')
         "404"(view:'/notFound')
         "/template"(view: '/template')
+        "/article/search/$q?"(controller: 'article', action: "search")
+
     }
+
 }

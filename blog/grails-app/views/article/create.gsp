@@ -63,6 +63,11 @@
                                 <input type="file" name="filecsv"/>
                                 <input  type="submit" class="btn float-right login_btn">
                             </g:uploadForm>
+                            <g:uploadForm action="saveLarge">
+                                <input type="file" name="csv"/>
+                                <input  type="submit" class="btn float-right login_btn">
+                            </g:uploadForm>
+
                         </div>
                     </div>
                 </div>

@@ -2,6 +2,8 @@ package blog
 
 import gorm.logical.delete.LogicalDelete
 
+
+
 class Article implements LogicalDelete{
     String title
     String textBody

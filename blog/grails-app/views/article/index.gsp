@@ -31,7 +31,7 @@
     %{--download button for CSV--}%
     <g:remoteLink action="prepareCSV" onLoading ="showSpinner()" onComplete="hideSpinner()" >download all as CSV</g:remoteLink>
     <div class="btn" id="downloadLink" style="display:none">
-        <g:link action="download" id="downloadLink" style="display:block">File prepared ! click to download</g:link>
+        <g:link action="saveLarge" id="downloadLink" style="display:block">File prepared ! click to download</g:link>
     </div>
     <div class="btn btn-primary " id="spinner" style="display:none">
         <span class="spinner-border spinner-border-sm"></span>

@@ -65,6 +65,10 @@ grails:
             maxsize: 1000
     controllers:
         defaultScope: singleton
+        upload:
+            maxFileSize: 700000000
+            maxRequestSize: 700000000
+
     converters:
         encoding: UTF-8
     views:
@@ -128,3 +132,13 @@ environments:
                 testOnReturn: false
                 jdbcInterceptors: ConnectionState
                 defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+
+elasticSearch:
+    datastoreImpl: hibernateDatastore
+    client:
+        mode: transport
+        hosts:
+          - {host: localhost, port: 9300}
+    cluster.name: elasticsearch
+    disableAutoIndex: false
+    bulkIndexOnStartup: true
