@@ -1,0 +1,3 @@
+<pre>
+    ${xmlstring.encodeAsHTML()}
+</pre>
