@@ -103,6 +103,7 @@ dataSource:
 
 environments:
     development:
+
         dataSource:
             dbCreate: update
             url: jdbc:mysql://127.0.0.1:3306/blogger
@@ -142,3 +143,15 @@ elasticSearch:
     cluster.name: elasticsearch
     disableAutoIndex: false
     bulkIndexOnStartup: true
+
+grails:
+     mail:
+          host: "smtp.gmail.com"
+          port: 465
+          username: "ygsh.spcry5@gmail.com"
+          password: "findout51"
+          props:
+              mail.smtp.auth: "true"
+              mail.smtp.socketFactory.port: "465"
+              mail.smtp.socketFactory.class: "javax.net.ssl.SSLSocketFactory"
+              mail.smtp.socketFactory.fallback: "false"
