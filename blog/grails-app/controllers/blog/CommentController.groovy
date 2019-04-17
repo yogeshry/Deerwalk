@@ -1,15 +1,10 @@
 package blog
 
 import grails.plugin.springsecurity.annotation.Secured
-import grails.rest.RestfulController
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 @Secured(['permitAll'])
-class CommentController extends RestfulController<Comment> {
-    static responseFormats = ['json', 'xml']
-    CommentController() {
-        super(Comment)
-    }
+class CommentController {
 
     CommentService commentService
 

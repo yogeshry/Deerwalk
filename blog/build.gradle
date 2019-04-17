@@ -30,7 +30,7 @@ repositories {
 dependencies {
     compile 'org.grails:grails-datastore-rest-client'
     compile "org.grails.plugins:mail:2.0.0.RC6"
-
+    compile 'org.grails.plugins:hibernate-search:2.3.0'
     compile 'org.grails.plugins:http-builder-helper:1.1.0'
     compile 'org.grails.plugins:ajax-tags:1.0.0'
     compile "org.grails.plugins:gorm-logical-delete:2.0.0.BUILD-SNAPSHOT"

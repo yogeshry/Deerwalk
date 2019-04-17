@@ -107,4 +107,6 @@ class UserController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+
 }

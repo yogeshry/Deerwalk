@@ -134,15 +134,18 @@ environments:
                 jdbcInterceptors: ConnectionState
                 defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
 
-elasticSearch:
-    datastoreImpl: hibernateDatastore
-    client:
-        mode: transport
-        hosts:
-          - {host: localhost, port: 9300}
-    cluster.name: elasticsearch
-    disableAutoIndex: false
-    bulkIndexOnStartup: true
+environment:
+    development:
+        elasticSearch:
+            datastoreImpl: hibernateDatastore
+            client:
+                mode: local
+                hosts:
+                  - {host: localhost, port: 9300}
+            cluster.name: elasticsearch
+            disableAutoIndex: false
+            bulkIndexOnStartup: true
+            index.store.type: memory
 
 grails:
      mail:
