@@ -3,7 +3,7 @@
 <head>
     <meta name="layout" content="main"/>
     <title>Email Sender</title>
-    <script src="//cdn.ckeditor.com/4.6.0/full-all/ckeditor.js"></script>
+    %{--<script src="//cdn.ckeditor.com/4.6.0/full-all/ckeditor.js"></script>--}%
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
 </head>
 <body>
@@ -22,17 +22,26 @@
         </g:if>
 
         <g:form controller="email" action="send" enctype="multipart/form-data">
-
+            <br/>
             <div class="fieldcontain">
-                <g:textField name="address" placeholder="youremail@gmail.com" required="" />
+                <g:textField name="address" placeholder="Email" required="" />
+                <p>For multiple users separate address by comma</p>
             </div>
             <div class="fieldcontain">
-                <g:textField name="subject" placeholder="Your Subject" required="" />
+                <g:textField name="name" placeholder="Receipent" required="" />
+                <p>For multiple Receipents separate names by comma</p>
             </div>
+            <br/>
             <div class="fieldcontain">
-                <g:textArea name="body" rows="5" cols="80" placeholder="Your message" required="" />
+                <g:textField name="subject" placeholder="Subject" required="" />
             </div>
-            <input type="file" name="attachment"/>
+            <br/>
+            <br/>
+            %{--<div class="fieldcontain">--}%
+                %{--<g:textArea name="body" rows="5" cols="80" placeholder="Your message" required="" />--}%
+            %{--</div>--}%
+            <g:render template="/email/myTemplate" />
+            <input type="file" name="attachment" placeholder="attachment"/>
 
             <fieldset>
                 <g:submitButton name="send" value="Send" />
@@ -41,10 +50,10 @@
     </section>
 </div>
 </div>
-<script>
-    CKEDITOR.replace('body', {
-        extraPlugins: 'codesnippet'
-    });
-</script>
+%{--<script>--}%
+    %{--CKEDITOR.replace('body', {--}%
+        %{--extraPlugins: 'codesnippet'--}%
+    %{--});--}%
+%{--</script>--}%
 </body>
 </html>
